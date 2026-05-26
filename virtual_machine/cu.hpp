@@ -1,23 +1,28 @@
-#include "Instruccion.hpp"
-#include "program.hpp"
-#include "alu.hpp"
-#include "add.hpp"
-
 #ifndef CU_HPP
 #define CU_HPP
-#include <string>
 
-using namespace std;
+#include <string>
+#include "Instruccion.hpp"
+#include "Program.hpp"
+#include "ALU.hpp"
+#include "Registros.hpp"   
 
 class CU
 {
-    private:
-        string status;
-    public:
-        CU();
-        CU(string Status);
-        Instruccion fetch(Program theProgram, int thePosition);
-        void execute(int theCode);
+private:
+    std::string status;
+    ALU alu;
+    Registros reg;          // banco de registros
+    
+public:
+    CU();
+    CU(std::string theStatus);
+    
+    Instruccion fetch(Program& theProgram);
+    int decode(const Instruccion& theInstruction);
+    void execute(int theCode, int operand1, int operand2);
+    void run(Program& theProgram);
+    void displayRegistros() const;  
 };
 
 #endif

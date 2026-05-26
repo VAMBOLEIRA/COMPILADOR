@@ -1,18 +1,32 @@
-#define INSTRUCCION_HPP
+#include "Instruccion.hpp"
+#include <iostream>
 
-#include <string>
+Instruccion::Instruccion() {}
 
-using namespace std;
-class Instruccion{
-    private:
-        string name;
-        short int code;
-        short int lenght;
 
-    public:
-        Instruccion();
-        Instruccion(string Name, short int Code, short int Lenght);
-        void display();
-        int getCode();
-        string getName();
-};
+Instruccion::Instruccion(string theName, short int theCode, short int theLength) 
+{
+	name = theName;
+	code = theCode;
+	lenght = theLength;
+}
+
+
+void Instruccion::display()
+{
+	cout << name <<"," << code << "," << lenght << endl;
+}
+
+int Instruccion::getCode() const
+{
+	return code;
+}
+
+string Instruccion::getName() const
+{
+	return name;
+}
+
+short int Instruccion::getLenght() const {
+    return lenght;
+}

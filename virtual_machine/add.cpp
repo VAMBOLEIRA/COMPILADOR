@@ -1,20 +1,8 @@
-
+// ADD.cpp
 #include "ADD.hpp"
 
-ADD::ADD(){}
+ADD::ADD() : Instruccion("ADD", 1, 2) {}  // siempre igual
 
-ADD::ADD(string theName, int theCode, int theLength, int theOperand1, int theOperand2): Instruction(theName, theCode, theLength)
-{
-	operand1 = theOperand1;
-	operand2 = theOperand2;
-}
-
-int ADD::getOperand1()
-{
-	return operand1;
-}
-
-int ADD::getOperand2()
-{
-	return operand2;
+int ADD::execute(ALU& alu, int op1, int op2) {
+    return alu.add(op1, op2);
 }

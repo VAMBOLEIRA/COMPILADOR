@@ -5,17 +5,22 @@
 #include <string>
 
 using namespace std;
+
 class MOV: public Instruccion
 {
-    private:
-        string regist;
-        string address;
-        int value;
-    public:
-        MOV();
-        MOV(string name, short int code, short int lenght, string theRegister, string theAddress);
-        MOV(string name, int theValue, string theRegister);
-        int getValue();
+	private:
+		string regist;
+		string address;
+		int value;
+	public:
+		MOV();
+		MOV(string name, short int code,short int length, string theRegister, string theAddress);
+		MOV(string name, int theValue, string theRegister);
+        string getRegist();
+        string getAddress();
+		int getValue();
+		void display();
 };
 
 #endif
+
